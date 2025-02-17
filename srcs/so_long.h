@@ -6,12 +6,12 @@
 /*   By: chrui-ha <chrui-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:56:57 by chrui-ha          #+#    #+#             */
-/*   Updated: 2024/12/17 17:56:57 by chrui-ha         ###   ########.fr       */
+/*   Updated: 2025/01/25 12:49:59 by chrui-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef so_long
-# define so_long
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # define WALL "assets/wall.xpm"
 # define EMPTY "assets/empty.xpm"
@@ -65,24 +65,25 @@ typedef struct s_init_map
 
 }	t_init_map;
 
-void exit_with_error(const char *message, t_init_map *data);
-void parsing_maps(t_init_map *data);
-void ft_initialise_struct (t_init_map *data, char *fd);
-int main(int argc, char **argv);
-void free_map(t_init_map *data);
-void ft_check_char_count(t_init_map *data);
-int ft_check_wall(t_init_map *data);
-int ft_check_char( t_init_map *data);
-void ft_check_file(t_init_map *data);
-void ft_check(t_init_map *data);
-int validateMap(t_init_map *init);
-void ft_return_initial(t_init_map *data);
+void	exit_with_error(const char *message, t_init_map *data);
+void	parsing_maps(t_init_map *data);
+void	ft_initialise_struct(t_init_map *data, char *fd);
+int		main(int argc, char **argv);
+void	free_map(t_init_map *data);
+void	ft_check_char_count(t_init_map *data);
+int		ft_check_wall(t_init_map *data);
+int		ft_check_char( t_init_map *data);
+void	ft_check_file(t_init_map *data);
+void	ft_check(t_init_map *data);
+int		validate_map(t_init_map *init);
+void	ft_return_initial(t_init_map *data);
 void	ft_create_map(t_init_map *data);
 void	ft_game_result(t_init_map *data);
-int	ft_exit(t_init_map *data);
-int	press_key(int keycode, t_init_map *data);
+int		ft_exit(t_init_map *data);
+int		press_key(int keycode, t_init_map *data);
 void	ft_graphics(t_init_map *data);
 char	*ft_strdup(const char *src);
-void free_graphics(t_init_map *data);
+void	free_graphics(t_init_map *data);
+void	exit_with_error_fd(const char *message, t_init_map *data, int fd);
 
-# endif
+#endif

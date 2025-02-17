@@ -6,45 +6,29 @@
 /*   By: chrui-ha <chrui-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:22:14 by chrui-ha          #+#    #+#             */
-/*   Updated: 2024/12/21 18:22:14 by chrui-ha         ###   ########.fr       */
+/*   Updated: 2025/01/25 12:40:17 by chrui-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-void exit_with_error(const char *message, t_init_map *data)
+int	ft_exit(t_init_map *data)
 {
-    ft_printf("%s",message);
-    free_map(data);
-    free_graphics(data);
-    exit(1);
+	(void) *data;
+	exit(1);
 }
 
-void free_map(t_init_map *data) 
+void	ft_game_result(t_init_map *data)
 {
-    int i;
-
-    i = 0;
-    if (data->map) {
-        while (data->map[i]!= NULL) {
-            free(data->map[i]);
-            i++;
-        }
-        free(data->map);
-    }
+	mlx_clear_window(data->mlx, data->win);
+	ft_printf("Congratulations! You have completed the game!\n");
+	mlx_destroy_window(data->mlx, data->win);
+	data->win = NULL;
+	free_map(data);
+	free_graphics(data);
+	exit(0);
 }
 
-void ft_game_result(t_init_map *data)
-{
-    mlx_clear_window(data->mlx, data->win);
-    ft_printf("Congratulations! You have completed the game!\n");
-    mlx_destroy_window(data->mlx, data->win);
-    data->win = NULL;
-    free_map(data);
-    free_graphics(data);
-    exit(0);
-}
 char	*ft_strdup(const char *src)
 {
 	char	*c;
@@ -66,5 +50,3 @@ char	*ft_strdup(const char *src)
 	}
 	return (NULL);
 }
-
-
